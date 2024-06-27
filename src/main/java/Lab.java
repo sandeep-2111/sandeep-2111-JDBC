@@ -40,7 +40,7 @@ public class Lab {
         //write jdbc code here
         Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/sandeep","root","root");
         Statement st=con.createStatement();
-        String s="insert into songs(id,title,artist) values("+"song.getId"+","+"song.getTitle"+","+"song.getArtist)";
+        String s="insert into songs values("+"song.getId"+","+"song.getTitle"+","+"song.getArtist)";
         st.executeQuery(s);
     }
 

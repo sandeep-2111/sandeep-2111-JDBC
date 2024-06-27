@@ -50,7 +50,7 @@ public class LabTest {
     }
 
     @Test
-    public void createSongTest(){
+    public void createSongTest() throws SQLException{
         int counter = 0;
         Song song = new Song("song1", "artist1");
         jdbc.createSong(song);
@@ -75,7 +75,7 @@ public class LabTest {
     }
 
     @Test
-    public void selectAllSongsTest(){
+    public void selectAllSongsTest() throws SQLException{
         List<Song> expectedResult = new ArrayList<>();
 
         try {
