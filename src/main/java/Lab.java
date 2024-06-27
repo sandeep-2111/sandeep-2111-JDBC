@@ -38,7 +38,7 @@ public class Lab {
 
     public void createSong(Song song) throws SQLException  {
         //write jdbc code here
-        Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/sandeep","root","root");
+        Connection con=ConnectionUtil.getConnection();
         Statement st=con.createStatement();
         String s="insert into songs values("+"song.getId"+","+"song.getTitle"+","+"song.getArtist)";
         st.executeQuery(s);
@@ -48,7 +48,7 @@ public class Lab {
         List<Song> songs = new ArrayList<>();
 
         //write jdbc code here
-        Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/sandeep","root","root");
+        Connection con=ConnectionUtil.getConnection();
         Statement st=con.createStatement();
         String s="select * from songs";
         ResultSet rs=st.executeQuery(s);
