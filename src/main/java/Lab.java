@@ -8,7 +8,10 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.h2.jdbc.JdbcBlob;
+
 import util.ConnectionUtil;
+import util.H2Util;
 
 /**
  * JDBC stands for Java DataBase Connectivity.  It is utilized to connect our java code with a database.
@@ -36,10 +39,17 @@ import util.ConnectionUtil;
  */
 public class Lab {
 
+    /**
+     * @param song
+     * @throws SQLException
+     */
     public void createSong(Song song) throws SQLException  {
         //write jdbc code here
+        //H2Util.dropAllTables();
+        //H2Util.generateTables();
         Connection con=ConnectionUtil.getConnection();
         Statement st=con.createStatement();
+        //jdbc.createSong(song);
         String s="insert into songs values("+"song.getId"+","+"song.getTitle"+","+"song.getArtist)";
         st.executeQuery(s);
     }
