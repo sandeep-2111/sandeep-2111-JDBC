@@ -51,7 +51,7 @@ public class LabTest {
 
     @Test
     public void createSongTest() throws SQLException{
-        int counter = 0;
+        int counter = 1;
         Song song = new Song("song1", "artist1");
         jdbc.createSong(song);
 

@@ -46,9 +46,9 @@ public class Song {
         this.artist = artist;
     }
 
-    public Song id(int id) {
+    public int id(int id) {
         setId(id);
-        return this;
+        return this.id;
     }
 
     public Song title(String title) {

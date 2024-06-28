@@ -2,6 +2,7 @@
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -48,10 +49,13 @@ public class Lab {
         //H2Util.dropAllTables();
         //H2Util.generateTables();
         Connection con=ConnectionUtil.getConnection();
-        Statement st=con.createStatement();
-        //jdbc.createSong(song);
-        String s="insert into songs values("+"song.getId"+","+"song.getTitle"+","+"song.getArtist)";
-        st.executeQuery(s);
+        String s="insert into songs(id,title,artist) values(?,?,?)";
+        //String s="insert into songs(title,artist) values("+song.gettitle()+","+song.getArtist()+")";
+        PreparedStatement st=con.prepareStatement(s);  
+        st.setInt(1,song.getId());
+        st.setString(2,song.gettitle());
+        st.setString(3,song.getArtist());      
+        //st.executeQuery(s);
     }
 
     public List<Song> getAllSongs() throws SQLException{
